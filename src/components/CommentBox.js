@@ -21,29 +21,53 @@ const dummyComments = [
 
 const CommentBox = () => {
   return (
-    <div style={{ marginTop: "10px" }}>
+    <div style={{ 
+      marginTop: "24px",
+      background: "#f0f9ff",
+      padding: "20px",
+      borderRadius: "12px",
+      border: "1px solid #bae6fd"
+    }}>
       {dummyComments.map((comment) => (
         <div
           key={comment.id}
           style={{
-            background: "#f9f9f9",
-            padding: "10px 15px",
+            background: "white",
+            padding: "16px",
             borderRadius: "8px",
-            marginBottom: "15px",
+            marginBottom: "16px",
+            boxShadow: "0 2px 4px rgba(0,0,0,0.05)",
+            borderLeft: "4px solid #38bdf8"
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: "14px" }}>
+          <div style={{ 
+            display: "flex", 
+            justifyContent: "space-between", 
+            fontSize: "14px",
+            marginBottom: "8px"
+          }}>
             <strong>
               <Link
                 to={`/author/${comment.authorId}`}
-                style={{ color: "#007bff", textDecoration: "none" }}
+                style={{ 
+                  color: "#075985",
+                  textDecoration: "none",
+                  fontWeight: 600
+                }}
               >
                 {comment.author}
               </Link>
             </strong>
-            <span style={{ color: "#888" }}>{comment.date}</span>
+            <span style={{ color: "#64748b" }}>{comment.date}</span>
           </div>
-          <p style={{ margin: "8px 0", fontSize: "15px" }}>{comment.text}</p>
+          <p style={{ 
+            margin: 0, 
+            fontSize: "15px", 
+            color: "#334155",
+            lineHeight: 1.5
+          }}>
+            {comment.text}
+          </p>
           <ReactionBar />
         </div>
       ))}
